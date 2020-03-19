@@ -10,12 +10,12 @@
 <body>
  <textarea name="" id="incomingText" cols="30" rows="10"></textarea>
  <button onclick="scarmbleInit()">Click</button>
- <h1 id="output">waiting</h1>
+ <h1 id="outputText">Output</h1>
+ <textarea name="" id="output" cols="30" rows="10"></textarea>
 </body>
 <script>
  function scram(str) {
   if (str.length > 3) {
-   console.log('test from r')
    return str.charAt(1) + str.charAt(0) + scram(str.substring(2))
   }
   return str
@@ -26,13 +26,12 @@
   let out = ''
   for (let index = 0; index < res.length; index++) {
    if (res[index].length > 3) {
-    console.log('test')
     res[index] = res[index].charAt(0) + scram(res[index].substring(1))
    }
    out = out + ' '+ res[index]
   }
 
-  document.getElementById('output').innerText = out
+  document.getElementById('output').value = out
  }
 </script>
 
